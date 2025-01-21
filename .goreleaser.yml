@@ -39,19 +39,21 @@ changelog:
   use: git
   filters:
     exclude:
-      - '^docs:'
-      - '^chore:'
-      - '^test:'
+      - '^docs(\(.*\))?:'  # 排除以 "docs:" 或 "docs(readme):" 开头的提交
+      - '^chore(\(.*\))?:'  # 排除以 "chore:" 或 "chore(ci):" 开头的提交
+      - '^test(\(.*\))?:'  # 排除以 "test:" 或 "test(unit):" 开头的提交
   sort: asc
   groups:
     - title: "New Features"
-      regexp: "^feat:"
+      regexp: "^feat(\(.*\))?:"  # 匹配 "feat:" 或 "feat(flow):"
     - title: "Bug Fixes"
-      regexp: "^fix:"
+      regexp: "^fix(\(.*\))?:"  # 匹配 "fix:" 或 "fix(bug):"
     - title: "Performance Improvements"
-      regexp: "^perf:"
+      regexp: "^perf(\(.*\))?:"  # 匹配 "perf:" 或 "perf(optimize):"
+    - title: "CI/CD Changes"
+      regexp: "^chore(\(ci\))?:"  # 匹配 "chore:" 或 "chore(ci):"
     - title: "Other Changes"
-      regexp: "^.*$"
+      regexp: "^.*$"  # 匹配所有其他提交
 
 release:
   draft: false
@@ -76,7 +78,7 @@ release:
     {{ if .Changelog }}
     {{ .Changelog }}
     {{ else }}
-    No significant changes in this release.
+    ### No significant changes in this release.
     {{ end }}
 
     ## Installation

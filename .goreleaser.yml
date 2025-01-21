@@ -42,6 +42,7 @@ changelog:
       - '^docs(\(.*\))?:'  # 排除以 "docs:" 或 "docs(readme):" 开头的提交
       - '^chore(\(.*\))?:'  # 排除以 "chore:" 或 "chore(ci):" 开头的提交
       - '^test(\(.*\))?:'  # 排除以 "test:" 或 "test(unit):" 开头的提交
+      - '^refactor(\(.*\))?:' #排除以 "test:" 或 "test(unit):" 开头的提交
   sort: asc
   groups:
     - title: "New Features"
@@ -50,6 +51,8 @@ changelog:
       regexp: '^fix(\(.*\))?:'  # 匹配 "fix:" 或 "fix(bug):"
     - title: "Performance Improvements"
       regexp: '^perf(\(.*\))?:'  # 匹配 "perf:" 或 "perf(optimize):"
+    - title: "Code Refactoring"
+      regexp: '^refactor(\(.*\))?:'
     - title: "Other Changes"
       regexp: '^.*$'  # 匹配所有其他提交
 
@@ -85,22 +88,22 @@ release:
 
     ```bash
     # Linux (amd64)
-    curl -L -o webstack-go.tar.gz https://github.com/{{ .Repo.Owner }}/{{ .Repo.Name }}/releases/download/v{{ .Version }}/webstack-go_{{ .Version }}_linux_amd64.tar.gz
+    curl -L -o webstack-go.tar.gz https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_linux_amd64.tar.gz
 
     # macOS (arm64)
-    curl -L -o webstack-go.tar.gz https://github.com/{{ .Repo.Owner }}/{{ .Repo.Name }}/releases/download/v{{ .Version }}/webstack-go_{{ .Version }}_darwin_arm64.tar.gz
+    curl -L -o webstack-go.tar.gz https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_darwin_arm64.tar.gz
 
     # Windows (amd64)
-    curl -L -o webstack-go.zip https://github.com/{{ .Repo.Owner }}/{{ .Repo.Name }}/releases/download/v{{ .Version }}/webstack-go_{{ .Version }}_windows_amd64.zip
+    curl -L -o webstack-go.zip https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_windows_amd64.zip
     ```
 
     ## Documentation
 
-    For more details, please refer to the [documentation](https://github.com/{{ .Repo.Owner }}/{{ .Repo.Name }}/wiki).
+    For more details, please refer to the [documentation](https://github.com/{{ .GitHub.Owner }}/{ .GitHub.Name }}/wiki).
 
     ## Support
 
-    If you encounter any issues, please [open an issue](https://github.com/{{ .Repo.Owner }}/{{ .Repo.Name }}/issues).
+    If you encounter any issues, please [open an issue](https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/issues).
 
     ---
 

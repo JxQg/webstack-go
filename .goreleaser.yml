@@ -37,13 +37,13 @@ checksum:
 
 changelog:
   use: git
+  format: "{{.SHA}}: {{.Message}} (@{{.AuthorUsername}})"
+  sort: asc
   filters:
     exclude:
       - '^docs(\(.*\))?:'  # 排除以 "docs:" 或 "docs(readme):" 开头的提交
       - '^chore(\(.*\))?:'  # 排除以 "chore:" 或 "chore(ci):" 开头的提交
       - '^test(\(.*\))?:'  # 排除以 "test:" 或 "test(unit):" 开头的提交
-      - '^refactor(\(.*\))?:' #排除以 "test:" 或 "test(unit):" 开头的提交
-  sort: asc
   groups:
     - title: "New Features"
       regexp: '^feat(\(.*\))?:'  # 匹配 "feat:" 或 "feat(flow):"
@@ -76,8 +76,8 @@ release:
 
     ## What's Changed
 
-    {{ if .Changelog }}
-    {{ .Changelog }}
+    {{ if .changelog }}
+    {{ .changelog }}
     {{ else }}
     ### No significant changes in this release.
     {{ end }}

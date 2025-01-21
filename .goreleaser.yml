@@ -68,22 +68,7 @@ release:
     {{ range .Contributors }}
     - [{{ .Login }}]({{ .HTMLURL }})
     {{ end }}
-
-  header: |
-    # {{ .ProjectName }} {{ .Version }}
-
-    **Release Date:** {{ .Date }}
-
-    ## What's Changed
-
-    {{ if .changelog }}
-    {{ .changelog }}
-    {{ else }}
-    ### No significant changes in this release.
-    {{ end }}
-
-    ---
-
+    
 git:
   ignore_tags:
     - alpha

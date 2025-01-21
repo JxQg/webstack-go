@@ -82,29 +82,6 @@ release:
     ### No significant changes in this release.
     {{ end }}
 
-    ## Installation
-
-    Download the pre-built binaries for your platform:
-
-    ```bash
-    # Linux (amd64)
-    curl -L -o webstack-go.tar.gz https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_linux_amd64.tar.gz
-
-    # macOS (arm64)
-    curl -L -o webstack-go.tar.gz https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_darwin_arm64.tar.gz
-
-    # Windows (amd64)
-    curl -L -o webstack-go.zip https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/releases/download/{{ .Tag }}/webstack-go_{{ .Version }}_windows_amd64.zip
-    ```
-
-    ## Documentation
-
-    For more details, please refer to the [documentation](https://github.com/{{ .GitHub.Owner }}/{ .GitHub.Name }}/wiki).
-
-    ## Support
-
-    If you encounter any issues, please [open an issue](https://github.com/{{ .GitHub.Owner }}/{{ .GitHub.Name }}/issues).
-
     ---
 
 git:

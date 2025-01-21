@@ -45,15 +45,13 @@ changelog:
   sort: asc
   groups:
     - title: "New Features"
-      regexp: "^feat(\(.*\))?:"  # 匹配 "feat:" 或 "feat(flow):"
+      regexp: '^feat(\(.*\))?:'  # 匹配 "feat:" 或 "feat(flow):"
     - title: "Bug Fixes"
-      regexp: "^fix(\(.*\))?:"  # 匹配 "fix:" 或 "fix(bug):"
+      regexp: '^fix(\(.*\))?:'  # 匹配 "fix:" 或 "fix(bug):"
     - title: "Performance Improvements"
-      regexp: "^perf(\(.*\))?:"  # 匹配 "perf:" 或 "perf(optimize):"
-    - title: "CI/CD Changes"
-      regexp: "^chore(\(ci\))?:"  # 匹配 "chore:" 或 "chore(ci):"
+      regexp: '^perf(\(.*\))?:'  # 匹配 "perf:" 或 "perf(optimize):"
     - title: "Other Changes"
-      regexp: "^.*$"  # 匹配所有其他提交
+      regexp: '^.*$'  # 匹配所有其他提交
 
 release:
   draft: false

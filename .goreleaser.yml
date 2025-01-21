@@ -21,15 +21,16 @@ builds:
       - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
 
 archives:
-  - format: tar.gz
+  - id: default
+    format: tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
       - src: "config/*"
         dst: "config"
     wrap_in_directory: true
-    # 为 Windows 平台单独配置 zip 格式
-    replacements:
-      windows: "zip"
+    format_overrides:
+      - goos: windows
+        format: zip
 
 checksum:
   name_template: "{{ .ProjectName }}_{{ .Version }}_checksums.txt"
@@ -38,19 +39,19 @@ changelog:
   use: git
   filters:
     exclude:
-      - '^docs:'  # 排除以 "docs:" 开头的提交
-      - '^chore:'  # 排除以 "chore:" 开头的提交
-      - '^test:'   # 排除以 "test:" 开头的提交
-  sort: asc  # 按时间顺序排序（asc 为升序，desc 为降序）
+      - '^docs:'
+      - '^chore:'
+      - '^test:'
+  sort: asc
   groups:
     - title: "New Features"
-      regexp: "^feat:"  # 匹配以 "feat:" 开头的提交
+      regexp: "^feat:"
     - title: "Bug Fixes"
-      regexp: "^fix:"   # 匹配以 "fix:" 开头的提交
+      regexp: "^fix:"
     - title: "Performance Improvements"
-      regexp: "^perf:"  # 匹配以 "perf:" 开头的提交
+      regexp: "^perf:"
     - title: "Other Changes"
-      regexp: "^.*$"    # 匹配所有其他提交
+      regexp: "^.*$"
 
 release:
   draft: false
